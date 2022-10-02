@@ -1,5 +1,6 @@
 package org.launchcode.techjobs.oo;
 
+import java.lang.reflect.Field;
 import java.util.Objects;
 
 public class Job {
@@ -27,6 +28,39 @@ public class Job {
         this.location = location;
         this.positionType = positionType;
         this.coreCompetency = coreCompetency;
+    }
+    @Override
+    public String toString(){
+        if(this.getName() == null && this.getEmployer() == null && this.getLocation() == null && this.getPositionType() == null && this.getCoreCompetency() == null) {
+            return "OOPS! This job does not seem to exist";
+        }
+    // TASK 5: HANDLE EMPTY DATA
+        if(this.getName() == null){
+            this.setName("Data not available");
+        }
+        if(this.getEmployer().getValue() == "null" | this.getEmployer().getValue() == ""){
+            this.setEmployer(new Employer("Data not available"));
+        }
+        if(this.getLocation().getValue() == "null" | this.getLocation().getValue() == ""){
+            this.setLocation(new Location("Data not available"));
+        }
+        if(this.getPositionType().getValue() == "null" | this.getPositionType().getValue() == ""){
+            this.setPositionType(new PositionType("Data not available"));
+        }
+        if(this.getCoreCompetency().getValue() == "null" | this.getCoreCompetency().getValue() == ""){
+            this.setCoreCompetency(new CoreCompetency("Data not available"));
+        }
+
+
+        return "\n" +
+                "ID: " + this.getId() + '\n' +
+                "Name: " + this.getName() + '\n' +
+                "Employer: " + this.getEmployer() + '\n' +
+                "Location: " + this.getLocation() + '\n' +
+                "Position Type: " + this.getPositionType() + '\n' +
+                "Core Competency: " + this.getCoreCompetency() +
+                "\n";
+
     }
 
     public String getName() {
