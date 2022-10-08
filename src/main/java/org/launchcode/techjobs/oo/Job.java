@@ -38,16 +38,16 @@ public class Job {
         if(this.getName() == null){
             this.setName("Data not available");
         }
-        if(this.getEmployer().getValue() == "null" | this.getEmployer().getValue() == ""){
+        if(this.getEmployer().getValue() == null | this.getEmployer().getValue() == ""){
             this.setEmployer(new Employer("Data not available"));
         }
-        if(this.getLocation().getValue() == "null" | this.getLocation().getValue() == ""){
+        if(this.getLocation().getValue() == null | this.getLocation().getValue() == ""){
             this.setLocation(new Location("Data not available"));
         }
-        if(this.getPositionType().getValue() == "null" | this.getPositionType().getValue() == ""){
+        if(this.getPositionType().getValue() == null | this.getPositionType().getValue() == ""){
             this.setPositionType(new PositionType("Data not available"));
         }
-        if(this.getCoreCompetency().getValue() == "null" | this.getCoreCompetency().getValue() == ""){
+        if(this.getCoreCompetency().getValue() == null  | this.getCoreCompetency().getValue() == ""){
             this.setCoreCompetency(new CoreCompetency("Data not available"));
         }
 
