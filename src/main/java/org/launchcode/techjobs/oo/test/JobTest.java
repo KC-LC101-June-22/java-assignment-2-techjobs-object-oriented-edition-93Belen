@@ -20,11 +20,11 @@ public class JobTest {
     @Test
     public void testJobConstructorSetsAllFields(){
         Job jobFields = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        Assert.assertTrue(jobFields.getName() != null);
-        Assert.assertTrue(jobFields.getEmployer() != null);
-        Assert.assertTrue(jobFields.getLocation() != null);
-        Assert.assertTrue(jobFields.getPositionType() != null);
-        Assert.assertTrue(jobFields.getCoreCompetency() != null);
+        Assert.assertTrue(jobFields.getName() instanceof String);
+        Assert.assertTrue(jobFields.getEmployer() instanceof Employer);
+        Assert.assertTrue(jobFields.getLocation() instanceof Location);
+        Assert.assertTrue(jobFields.getPositionType() instanceof PositionType);
+        Assert.assertTrue(jobFields.getCoreCompetency() instanceof CoreCompetency);
 
         Assert.assertEquals("Product tester", jobFields.getName());
         Assert.assertEquals("ACME", jobFields.getEmployer().getValue());
@@ -43,8 +43,8 @@ public class JobTest {
         Job someJob = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         String someJobString = someJob.toString();
         // Returns blank line at beginning and end
-        Assert.assertEquals(someJobString.charAt(0), '\n');
-        Assert.assertEquals(someJobString.charAt(someJobString.length() - 1), '\n');
+        Assert.assertEquals('\n', someJobString.charAt(0));
+        Assert.assertEquals('\n', someJobString.charAt(someJobString.length() - 1));
         }
     @Test
     public void testToStringContainsCorrectLabelsAndData(){

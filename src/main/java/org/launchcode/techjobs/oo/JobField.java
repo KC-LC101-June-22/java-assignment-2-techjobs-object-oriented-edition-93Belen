@@ -43,7 +43,10 @@ public abstract class JobField {
 
     @Override
     public String toString() {
-        return this.value;
+        if(this.getValue() == null || this.getValue() == ""){
+            return "Data not available";
+        }
+        return this.getValue();
     }
 
     //nextId <-
